@@ -1,5 +1,6 @@
 
 import 'dart:math';
+import 'dart:io';
 
 void main(){
 print('Answer no 1');    
@@ -29,61 +30,65 @@ print('Answer no 1');
     
   print('Answer no 3');
 
-      double a = 4;
-      double b = 6;
-      double c = pythagoreanTheorem(a,b);
-
-      print('the lenght of the hypotenuse is $c');
-    }
-
-    double pythagoreanTheorem(double a,double b){
-     double c = sqrt(pow(a, 2) + pow(b, 2));
-     return c;  
-
-   print('Answer no 4');
-
-        String Dot = "Hello,World";
-        String reversedDot = reversedString(Dot);
-        print(reversedDot);
+double pythagorean(double a, double b) {
+  return sqrt(a * a + b * b);
 }
 
-    String reversedString(String Dot){
-      String reversedDot = "";
-      for (int i = Dot.length-1; i >=0; i--){
-        reversedDot += Dot [i];
-      }
-      return reversedDot;
-   
-   print('Answer no 5');
-        
-      signUp(String username, String email, String password, {String? phoneNumber}){
-        if(username.isEmpty || email.isEmpty || password.isEmpty){
-          print('Error: username,email, and password are required fields');
-          return;
-        }
-        Map<String, String>user = {'username': username,'email':email,'password':password};
-            if(phoneNumber !=null){
-              user['phone']= phoneNumber;
-            }
-            print('user created successfully:');
-            user.forEach((key, value)=> print('$key: $value'));
-      }
-        loginUser(String username, String password)
-      {
-        if(username == 'Abdullah' && password == '12345'){
-          print('login sucessfully');
-        } else{
-          print('login failed: incorrect username or password');
-        }
-      }
-            signUp('Ali', 'ali@gmail.com', '123456',phoneNumber: '03001234567');
-            signUp('hamza', 'hamza@gmail.com', '123456', phoneNumber: '03201234567');
-            signUp('maaz', 'maaz@gmal.com', '123456', phoneNumber: '03301234567');
-    
-     loginUser('Abdullah', '12345'); 
-      loginUser('hamza', '123456'); 
-      loginUser('maaz', '123456'); 
+
+  double a = 3;
+  double b = 4;
+  double c = pythagorean(a, b);
+
+  print('Given the sides $a and $b, the hypotenuse is $c.');
 
 
-} 
 
+    print('Answer no 4');
+  String reverseString(String str) {
+    String reversedStr = '';
+    for (int i = str.length - 1; i >= 0; i--) {
+      reversedStr += str[i];
+    }
+    return reversedStr;
+  
+  }
+  String str = 'hello';
+  String reversedStr = reverseString(str);
+  print('Original string: $str');
+  print('Reversed string: $reversedStr');
+  
+
+ print('Answer no 5');
+
+   signUp(String username, String email, String password, {String? phoneNumber}) {
+
+    if (username.isEmpty || email.isEmpty || password.isEmpty) {
+      print('Error: username, email, and password are required fields');
+      return;
+    }
+
+    Map<String, String> user = {'username': username, 'email': email, 'password': password};
+    if (phoneNumber != null) {
+      user['phone'] = phoneNumber;
+    }
+    print('User created successfully:');
+    user.forEach((key, value) => print('$key: $value'));
+  }
+
+   loginUser(String username, String password) {
+    if (username == 'ali' && password == '12345') {
+      print('Login successful');
+    } else {
+      print('Login failed: incorrect username or password');
+    }
+  }
+
+  signUp('ali', 'ali@gmail.com', '12345');
+  signUp('hamza', 'hamza@gmail.com', '12345', phoneNumber: '03201234567');
+  signUp('maaz', 'maaz@gmail.com', '12345', phoneNumber: '03001234567');
+
+  loginUser('ali', '12345'); 
+  loginUser('hamza', '12345'); 
+  loginUser('maaz', '12345'); 
+
+}
